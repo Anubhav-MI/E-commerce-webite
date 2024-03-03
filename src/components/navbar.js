@@ -7,7 +7,9 @@ const Navbar = () => {
         <h3 className="font-bold text-lg text-center">Exclusive</h3>
       </div>
       <div className="flex flex-row basis-2/4">
-        <a className="basis-1/4">Home</a>
+        <a className="basis-1/4" href="/">
+          Home
+        </a>
         <a className="basis-1/4">Contact</a>
         <a className="basis-1/4">About</a>
         <a className="basis-1/4" href="/signup">

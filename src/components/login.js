@@ -1,12 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import signimg from "../Images/sign up image.png";
-import icon from "../Images/googleicon.png";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 const Login = () => {
   const navigate = useNavigate();
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+
+  const handlesubmit = () => {
+    if (!email || !password) {
+      alert("Email and password are compulsory fields");
+      return;
+    }
+    const response = axios
+      .post("http://localhost:3001/login", {
+        email,
+        password,
+      })
+      .then((response) => {
+        alert("User logged successfully");
+        navigate("/", {
+          replace: true,
+        });
+        setemail("");
+        setpassword("");
+      })
+      .catch((error) => {
+        console.error("Login error:", error);
+        if (error.response && error.response.status === 400) {
+          alert("Wrong credentials"); // Show an alert for wrong credentials
+        } else {
+          alert("An error occurred during login. Please try again later."); // Generic error message
+        }
+      });
+  };
   return (
     <div className="App">
       <div className="flex">
@@ -19,23 +49,30 @@ const Login = () => {
 
           <div class="form-floating mb-3">
             <input
-              type="contact"
+              value={email}
               class="form-control"
               id="floatingInput"
               placeholder="name@example.com"
+              onChange={(e) => setemail(e.target.value)}
             />
-            <label for="floatingInput">Email address or Phone number</label>
+            <label for="floatingInput">Email address</label>
           </div>
           <div class="form-floating">
             <input
               type="password"
+              value={password}
               class="form-control"
               id="floatingPassword"
               placeholder="Password"
+              onChange={(e) => setpassword(e.target.value)}
             />
             <label for="floatingPassword">Password</label>
           </div>
-          <button type="button" class="btn btn-outline-secondary min-h-16">
+          <button
+            onClick={handlesubmit}
+            type="button"
+            class="btn btn-outline-secondary min-h-16"
+          >
             Login
           </button>
           <GoogleOAuthProvider clientId="189418374010-d61841o55g1nhhaqj73pov0o38v2dld2.apps.googleusercontent.com">
