@@ -1,26 +1,23 @@
-import Titlebar from "./components/titlebar";
-import axios from "axios";
-import Navbar from "./components/navbar";
-import Hero from "./components/hero";
-import Footer from "./components/footer";
+import Home from "./components/home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useEffect } from "react";
+import Addproduct from "./components/addproduct";
+import Signup from "./components/signup";
+import Login from "./components/login";
+import Titlebar from "./components/titlebar";
+import Navbar from "./components/navbar";
+import Footer from "./components/footer/footer";
 function App() {
-  useEffect(() => {
-    const fetchdata = async () => {
-      const data = await axios.get("http://localhost:3001/data");
-      console.log("Data received", data);
-    };
-    fetchdata();
-  }, []);
   return (
     <Router>
-      <div className="App">
-        <Titlebar />
-        <Navbar />
-        <Hero />
-        <Footer />
-      </div>
+      <Titlebar />
+      <Navbar />
+      <Routes>
+        <Route path="/addproduct" element={<Addproduct />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+      <Footer />
     </Router>
   );
 }

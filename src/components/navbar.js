@@ -10,7 +10,9 @@ const Navbar = () => {
         <a className="basis-1/4">Home</a>
         <a className="basis-1/4">Contact</a>
         <a className="basis-1/4">About</a>
-        <a className="basis-1/4">Sign up</a>
+        <a className="basis-1/4" href="/signup">
+          Sign up
+        </a>
       </div>
       <div className="basis-1/4">
         <input
