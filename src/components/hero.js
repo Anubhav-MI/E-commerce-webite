@@ -30,7 +30,7 @@ const Hero = () => {
           <div class="carousel-item active">
             <img
               className="w-screen h-screen"
-              src="https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2019/11/product_photography_tips_4.jpg?resize=1500%2C1001&ssl=1"
+              src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8fDA%3D"
               alt="..."
             />
             <div class="carousel-caption d-none d-md-block">
@@ -43,7 +43,7 @@ const Hero = () => {
           <div class="carousel-item">
             <img
               className="w-screen h-screen"
-              src="https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2019/11/product_photography_tips_4.jpg?resize=1500%2C1001&ssl=1"
+              src="https://i02.appmifile.com/images/2018/11/07/08e43f35-da65-4da2-91c5-23427eb4055e.png"
               //   width={1000}
               //   height={1000}
               alt="..."
