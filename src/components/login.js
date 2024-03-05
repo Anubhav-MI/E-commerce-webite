@@ -5,11 +5,12 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+import { useAuth } from "../context/auth";
 const Login = () => {
   const navigate = useNavigate();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-
+  const [auth, setAuth] = useAuth();
   const handlesubmit = () => {
     if (!email || !password) {
       alert("Email and password are compulsory fields");
@@ -22,6 +23,13 @@ const Login = () => {
       })
       .then((response) => {
         alert("User logged successfully");
+        setAuth({
+          ...auth,
+          user: response.data.user,
+          token: response.data.token,
+        });
+        window.localStorage.setItem("auth", JSON.stringify(response.data));
+
         navigate("/", {
           replace: true,
         });

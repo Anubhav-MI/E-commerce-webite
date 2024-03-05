@@ -6,6 +6,7 @@ import Login from "./components/login";
 import Titlebar from "./components/titlebar";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer/footer";
+import Dashboard from "./components/admin/dashboard";
 function App() {
   return (
     <Router>
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/admin" element={<Dashboard />} />
       </Routes>
       <Footer />
     </Router>

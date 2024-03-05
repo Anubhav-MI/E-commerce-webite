@@ -1,6 +1,18 @@
 import React from "react";
-
+import wishlist from "./../Images/Wishlist.png";
+import cart from "./../Images/cart.png";
+import profile from "./../Images/user.png";
+import { useAuth } from "../context/auth";
 const Navbar = () => {
+  const [auth, setAuth] = useAuth();
+  const handlelogout = () => {
+    setAuth({
+      ...auth,
+      user: null,
+      token: "",
+    });
+    localStorage.removeItem("auth");
+  };
   return (
     <div className="flex flex-row py-4 px-2">
       <div className="basis-1/4">
@@ -12,9 +24,18 @@ const Navbar = () => {
         </a>
         <a className="basis-1/4">Contact</a>
         <a className="basis-1/4">About</a>
-        <a className="basis-1/4" href="/signup">
-          Sign up
-        </a>
+        {!auth.user ? (
+          <>
+            {" "}
+            <a className="basis-1/4" href="/signup">
+              Sign up
+            </a>
+          </>
+        ) : (
+          <>
+            <p onClick={handlelogout}>logout</p>
+          </>
+        )}
       </div>
       <div className="basis-1/4">
         <input
@@ -22,6 +43,19 @@ const Navbar = () => {
           placeholder="What are you looking for?"
           type="text"
         ></input>
+      </div>
+      <div className="basis-1/4">
+        <div className="flex gap-4">
+          <a>
+            <img src={wishlist} width={50} height={50}></img>
+          </a>
+          <a>
+            <img src={cart} width={40} height={40}></img>
+          </a>
+          <a href="/admin">
+            <img src={profile} width={40} height={40}></img>
+          </a>
+        </div>
       </div>
     </div>
   );
