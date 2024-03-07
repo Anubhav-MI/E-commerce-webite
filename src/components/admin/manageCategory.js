@@ -5,7 +5,7 @@ const ManageCategory = () => {
   const handlesubmit = () => {
     const response = axios
       .post("http://localhost:3001/createcategory", {
-        category,
+        name: category,
       })
       .then(() => {
         setcategory("");

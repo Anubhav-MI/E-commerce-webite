@@ -1,22 +1,37 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Select } from "antd";
+const { Option } = Select;
+
 const Manageproducts = () => {
   const [title, settitle] = useState("");
   const [imgURL, setimgURL] = useState("");
   const [price, setprice] = useState("");
   const [rating, setrating] = useState("");
   const [category, setcategory] = useState("");
-
+  const [avcategory, setavcategory] = useState([]);
   const [products, setproducts] = useState("");
   useEffect(() => {
     const fetchdata = async () => {
       const data = await axios.get("http://localhost:3001/products/get");
       setproducts(data);
-      console.log(products);
+      //   console.log(products);
+      getcategory();
       // console.log(products.data[0].title);
     };
     fetchdata();
   }, []);
+
+  const getcategory = async () => {
+    try {
+      const data = await axios.get("http://localhost:3001/getcategory");
+      setavcategory(data.data);
+      console.log(avcategory);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handlesubmit = () => {
     const response = axios
       .post("http://localhost:3001/products/add", {
@@ -59,67 +74,91 @@ const Manageproducts = () => {
 
   return (
     <div className="m-16 p-9">
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">
-          Product name
-        </label>
-        <input
-          value={title}
-          onChange={(e) => {
-            settitle(e.target.value);
-          }}
-          type="name"
-          class="form-control"
-          id="exampleFormControlInput1"
-          placeholder="Product name"
-        />
+      <div className="flex gap-6">
+        <div class="mb-3 w-full max-w-96">
+          <label for="exampleFormControlInput1" class="form-label">
+            Product name
+          </label>
+          <input
+            value={title}
+            onChange={(e) => {
+              settitle(e.target.value);
+            }}
+            type="name"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="Product name"
+          />
+        </div>
+        <div class="mb-3  w-full max-w-96">
+          <label for="exampleFormControlInput1" class="form-label">
+            Image url
+          </label>
+          <input
+            value={imgURL}
+            onChange={(e) => {
+              setimgURL(e.target.value);
+            }}
+            type="url"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="www.exampleimage.com"
+          />
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">
-          Image url
-        </label>
-        <input
-          value={imgURL}
-          onChange={(e) => {
-            setimgURL(e.target.value);
-          }}
-          type="url"
-          class="form-control"
-          id="exampleFormControlInput1"
-          placeholder="//url.com"
-        />
+      <div className="flex gap-6">
+        {" "}
+        <div class="mb-3 w-full max-w-96">
+          <label for="exampleFormControlInput1" class="form-label">
+            Price
+          </label>
+          <input
+            value={price}
+            onChange={(e) => {
+              setprice(e.target.value);
+            }}
+            type="price"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="250"
+          />
+        </div>
+        <div class="mb-3 w-full max-w-96">
+          <label for="exampleFormControlInput1" class="form-label">
+            Rating
+          </label>
+          <input
+            value={rating}
+            onChange={(e) => {
+              setrating(e.target.value);
+            }}
+            type="name"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="4.5"
+          />
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">
-          Price
-        </label>
-        <input
-          value={price}
-          onChange={(e) => {
-            setprice(e.target.value);
+      <div className="m-1  w-full max-w-96">
+        <Select
+          bordered={false}
+          placeholder="Select a category"
+          size="large"
+          showSearch
+          className="form-select mb-3"
+          onChange={(value) => {
+            setcategory(value);
           }}
-          type="price"
-          class="form-control"
-          id="exampleFormControlInput1"
-          placeholder="250"
-        />
+        >
+          {avcategory?.map((c) => (
+            <Option key={c._id} value={c.category}>
+              {" "}
+              {c.category}
+            </Option>
+          ))}
+        </Select>
       </div>
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">
-          Rating
-        </label>
-        <input
-          value={rating}
-          onChange={(e) => {
-            setrating(e.target.value);
-          }}
-          type="name"
-          class="form-control"
-          id="exampleFormControlInput1"
-          placeholder="4.5"
-        />
-      </div>
-      <div class="mb-3">
+      {/* <div class="mb-3 w-full max-w-96">
         <label for="exampleFormControlInput1" class="form-label">
           Category
         </label>
@@ -133,7 +172,7 @@ const Manageproducts = () => {
           id="exampleFormControlInput1"
           placeholder="Laptops"
         />
-      </div>
+      </div> */}
       <button onClick={handlesubmit} type="button" class="btn btn-warning ">
         Submit
       </button>
