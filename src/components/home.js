@@ -6,6 +6,7 @@ import arrival from "../Images/arrival.png";
 import rect from "../Images/Rect.png";
 import banner from "../Images/banner.png";
 import feat from "../Images/feat.png";
+import { Toaster } from "react-hot-toast";
 const Home = () => {
   //
   return (
@@ -52,6 +53,7 @@ const Home = () => {
           <img src={feat} width={1500}></img>
         </div>
       </div>
+      <Toaster></Toaster>
     </div>
   );
 };

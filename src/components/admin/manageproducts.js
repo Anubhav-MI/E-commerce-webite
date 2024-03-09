@@ -140,7 +140,7 @@ const Manageproducts = () => {
         </div>
       </div>
       <div className="m-1  w-full max-w-96">
-        <Select
+        {/* <Select
           bordered={false}
           placeholder="Select a category"
           size="large"
@@ -156,9 +156,9 @@ const Manageproducts = () => {
               {c.category}
             </Option>
           ))}
-        </Select>
+        </Select> */}
       </div>
-      {/* <div class="mb-3 w-full max-w-96">
+      <div class="mb-3 w-full max-w-96">
         <label for="exampleFormControlInput1" class="form-label">
           Category
         </label>
@@ -172,7 +172,7 @@ const Manageproducts = () => {
           id="exampleFormControlInput1"
           placeholder="Laptops"
         />
-      </div> */}
+      </div>
       <button onClick={handlesubmit} type="button" class="btn btn-warning ">
         Submit
       </button>

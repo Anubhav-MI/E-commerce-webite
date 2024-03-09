@@ -9,6 +9,7 @@ import Dashboard from "./components/admin/dashboard";
 import UserDetails from "./components/admin/users";
 import ManageCategory from "./components/admin/manageCategory";
 import Manageproducts from "./components/admin/manageproducts";
+import Cartpage from "./components/cartpage";
 function App() {
   return (
     <Router>
@@ -19,6 +20,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<Dashboard />} />
+        <Route path="/cart" element={<Cartpage />} />
         <Route path="/admin/manageproduct" element={<Manageproducts />} />
         <Route path="/admin/managecategory" element={<ManageCategory />} />
         <Route path="/admin/users" element={<UserDetails />} />

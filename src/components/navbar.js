@@ -1,10 +1,16 @@
 import React from "react";
 import wishlist from "./../Images/Wishlist.png";
-import cart from "./../Images/cart.png";
+import cartimg from "./../Images/cart.png";
 import profile from "./../Images/user.png";
 import { useAuth } from "../context/auth";
+import { useCart } from "../context/cart";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Badge } from "antd";
 const Navbar = () => {
   const [auth, setAuth] = useAuth();
+  const [cart] = useCart();
+  const navigate = useNavigate();
   const handlelogout = () => {
     setAuth({
       ...auth,
@@ -50,9 +56,12 @@ const Navbar = () => {
         <a>
           <img src={wishlist} width={50} height={50}></img>
         </a>
-        <a>
-          <img src={cart} width={40} height={40}></img>
-        </a>
+        <Badge count={cart?.length} showZero>
+          <Link to="/cart">
+            <img src={cartimg} width={40} height={40} alt="Cart" />
+          </Link>
+        </Badge>
+
         <a href="/admin">
           <img src={profile} width={40} height={40}></img>
         </a>
