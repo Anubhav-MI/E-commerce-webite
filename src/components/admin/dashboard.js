@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuth } from "../../context/auth";
 import Admindashboard from "./admindashboard";
+import Userdashboard from "./userdashboard";
 const Dashboard = () => {
   const [auth, setAuth] = useAuth();
   return (
@@ -11,7 +12,7 @@ const Dashboard = () => {
         </>
       ) : (
         <>
-          <p>User</p>
+          <Userdashboard></Userdashboard>
         </>
       )}
     </div>
