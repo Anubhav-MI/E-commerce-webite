@@ -11,6 +11,7 @@ import ManageCategory from "./components/admin/manageCategory";
 import Manageproducts from "./components/admin/manageproducts";
 import Cartpage from "./components/cartpage";
 import OrdersPage from "./components/ordersPage";
+import ManageOrders from "./components/admin/manageOrders";
 function App() {
   return (
     <Router>
@@ -25,6 +26,7 @@ function App() {
         <Route path="/order" element={<OrdersPage />} />
         <Route path="/admin/manageproduct" element={<Manageproducts />} />
         <Route path="/admin/managecategory" element={<ManageCategory />} />
+        <Route path="/admin/manageOrders" element={<ManageOrders />} />
         <Route path="/admin/users" element={<UserDetails />} />
       </Routes>
       <Footer />

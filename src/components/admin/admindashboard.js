@@ -1,25 +1,11 @@
 import React from "react";
 import { useAuth } from "../../context/auth";
+import AdminMenu from "./adminMenu";
 const Admindashboard = () => {
-  const [auth, setAuth] = useAuth();
+  const [auth] = useAuth();
   return (
     <div className="flex px-8">
-      <div>
-        <p className="text-center">Menu</p>
-        <ul class="list-group">
-          <li class="list-group-item">
-            <a href="/admin/manageproduct">Manage products</a>
-          </li>
-          <li class="list-group-item">
-            <a href="/admin/managecategory">Manage categories</a>
-          </li>
-          <li class="list-group-item">Order Details</li>
-          <li class="list-group-item">
-            <a href="/admin/users">User details</a>
-          </li>
-          {/* <li class="list-group-item">And a fifth one</li> */}
-        </ul>
-      </div>
+      <AdminMenu />
       <div>
         <p>Profile</p> <pre>{JSON.stringify(auth, null, 4)}</pre>
       </div>
