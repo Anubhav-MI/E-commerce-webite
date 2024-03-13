@@ -1,6 +1,6 @@
 import React from "react";
 import wishlist from "./../Images/Wishlist.png";
-import cartimg from "./../Images/cart.png";
+import cartimg from "./../Images/cart2.png";
 import profile from "./../Images/user.png";
 import { useAuth } from "../context/auth";
 import { useCart } from "../context/cart";
@@ -20,53 +20,118 @@ const Navbar = () => {
     localStorage.removeItem("auth");
   };
   return (
-    <div className="flex flex-row py-4 px-32 content-between justify-between border-b-2 border-black mb-16">
-      <div>
-        <h3 className="font-bold text-3xl text-center">Exclusive</h3>
-      </div>
-      <div className="flex flex-row gap-48">
-        <a className="basis-1/4 text-2xl" href="/">
-          Home
-        </a>
-        <a className="basis-1/4 text-2xl">Contact</a>
-        <a className="basis-1/4 text-2xl">About</a>
-        {!auth.user ? (
-          <>
-            {" "}
-            <a className="basis-1/4 text-2xl" href="/signup">
-              Register
-            </a>
-          </>
-        ) : (
-          <>
-            <p className="text-2xl" onClick={handlelogout}>
-              Logout
-            </p>
-          </>
-        )}
-      </div>
-      {/* <div className="basis-1/4">
-        <input
-          className="bg-slate-200 py-1 px-4"
-          placeholder="What are you looking for?"
-          type="text"
-        ></input>
-      </div> */}
-      <div className="flex gap-12 justify-center content-center">
-        <a>
-          <img src={wishlist} width={50} height={50}></img>
-        </a>
-        <Badge count={cart?.length} showZero>
-          <Link to="/cart">
-            <img src={cartimg} width={40} height={40} alt="Cart" />
-          </Link>
-        </Badge>
+    // <div className="flex flex-row py-4 px-32 content-between justify-between border-b-2 border-black mb-16">
+    //   <div>
+    //     <h3 className="font-bold text-3xl text-center">Exclusive</h3>
+    //   </div>
+    //   <div className="flex flex-row gap-48">
+    //     <a className="basis-1/4 text-2xl" href="/">
+    //       Home
+    //     </a>
+    //     <a className="basis-1/4 text-2xl">Contact</a>
+    //     <a className="basis-1/4 text-2xl">About</a>
+    // {!auth.user ? (
+    //   <>
 
-        <a href="/admin">
-          <img src={profile} width={40} height={40}></img>
-        </a>
+    //     <a className="basis-1/4 text-2xl" href="/signup">
+    //       Register
+    //     </a>
+    //   </>
+    // ) : (
+    //   <>
+    //     <p className="text-2xl" onClick={handlelogout}>
+    //       Logout
+    //     </p>
+    //   </>
+    // )}
+    //   </div>
+    //   {/* <div className="basis-1/4">
+    //     <input
+    //       className="bg-slate-200 py-1 px-4"
+    //       placeholder="What are you looking for?"
+    //       type="text"
+    //     ></input>
+    //   </div> */}
+    // <div className="flex gap-12 justify-center content-center">
+    //   <a>
+    //     <img src={wishlist} width={50} height={50}></img>
+    //   </a>
+    //   <Badge count={cart?.length} showZero>
+    //     <Link to="/cart">
+    //       <img src={cartimg} width={40} height={40} alt="Cart" />
+    //     </Link>
+    //   </Badge>
+
+    //   <a href="/admin">
+    //     <img src={profile} width={40} height={40}></img>
+    //   </a>
+    // </div>
+    // </div>
+    <header class="header-area header-sticky">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav">
+              <a href="/" class="logo pt-3">
+                <img src="assets/images/logo.png" />
+              </a>
+
+              <ul class="nav">
+                <li class="scroll-to-section">
+                  <a href="/" class="active">
+                    Home
+                  </a>
+                </li>
+                <li class="scroll-to-section">
+                  <a href="/productpage" className="basis-1/4 text-2xl">
+                    Products
+                  </a>
+                </li>
+                <li class="scroll-to-section">
+                  <a href="/about" className="basis-1/4 text-2xl">
+                    About
+                  </a>
+                </li>
+                <li class="scroll-to-section">
+                  {!auth.user ? (
+                    <>
+                      <a className="basis-1/4 text-2xl" href="/signup">
+                        Register
+                      </a>
+                    </>
+                  ) : (
+                    <>
+                      <a className="text-2xl" onClick={handlelogout}>
+                        Logout
+                      </a>
+                    </>
+                  )}
+                </li>
+                <li class="scroll-to-section">
+                  <div className="flex gap-12 justify-between items-center">
+                    <a>
+                      <img src={wishlist} width={40} height={40}></img>
+                    </a>
+                    <Badge count={cart?.length} showZero>
+                      <Link to="/cart">
+                        <img src={cartimg} width={30} height={30} alt="Cart" />
+                      </Link>
+                    </Badge>
+
+                    <a href="/admin">
+                      <img src={profile} width={30} height={30}></img>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+              <a class="menu-trigger">
+                <span>Menu</span>
+              </a>
+            </nav>
+          </div>
+        </div>
       </div>
-    </div>
+    </header>
   );
 };
 

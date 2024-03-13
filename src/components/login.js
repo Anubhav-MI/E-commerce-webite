@@ -39,14 +39,14 @@ const Login = () => {
       .catch((error) => {
         console.error("Login error:", error);
         if (error.response && error.response.status === 400) {
-          alert("Wrong credentials"); // Show an alert for wrong credentials
+          alert("Wrong credentials");
         } else {
-          alert("An error occurred during login. Please try again later."); // Generic error message
+          alert("An error occurred during login. Please try again later.");
         }
       });
   };
   return (
-    <div className="App">
+    <div>
       <div className="flex">
         <div>
           <img className="h-4/6" src={signimg} width={1100} alt=".." />
@@ -54,7 +54,6 @@ const Login = () => {
         <div className="flex flex-col pt-16 px-16 gap-8">
           <h2 className="font-normal text-5xl">Create an account</h2>
           <p>Enter your deatils below</p>
-
           <div class="form-floating mb-3">
             <input
               value={email}
@@ -88,7 +87,6 @@ const Login = () => {
               onSuccess={(credentialResponse) => {
                 const decoded = jwtDecode(credentialResponse.credential);
                 console.log(decoded);
-                // console.log(credentialResponse);
                 navigate("/", {
                   replace: true,
                 });

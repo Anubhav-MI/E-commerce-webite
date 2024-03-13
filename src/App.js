@@ -4,7 +4,6 @@ import Signup from "./components/signup";
 import Login from "./components/login";
 import Titlebar from "./components/titlebar";
 import Navbar from "./components/navbar";
-import Footer from "./components/footer/footer";
 import Dashboard from "./components/admin/dashboard";
 import UserDetails from "./components/admin/users";
 import ManageCategory from "./components/admin/manageCategory";
@@ -12,6 +11,9 @@ import Manageproducts from "./components/admin/manageproducts";
 import Cartpage from "./components/cartpage";
 import OrdersPage from "./components/ordersPage";
 import ManageOrders from "./components/admin/manageOrders";
+import Footer from "./components/footerr";
+import About from "./components/about";
+import ProductPage from "./components/productPage";
 function App() {
   return (
     <Router>
@@ -24,6 +26,8 @@ function App() {
         <Route path="/admin" element={<Dashboard />} />
         <Route path="/cart" element={<Cartpage />} />
         <Route path="/order" element={<OrdersPage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/productpage" element={<ProductPage />} />
         <Route path="/admin/manageproduct" element={<Manageproducts />} />
         <Route path="/admin/managecategory" element={<ManageCategory />} />
         <Route path="/admin/manageOrders" element={<ManageOrders />} />

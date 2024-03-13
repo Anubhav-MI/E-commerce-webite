@@ -7,24 +7,13 @@ import rect from "../Images/Rect.png";
 import banner from "../Images/banner.png";
 import feat from "../Images/feat.png";
 import { Toaster } from "react-hot-toast";
+import Explore from "./explore";
 const Home = () => {
   //
   return (
     <div>
-      <div className="App px-48 pb-48 gap-32 flex flex-col items-center justify-center">
+      <div className="App gap-32 flex flex-col items-center justify-center">
         <Hero />
-        <div className="flex flex-col gap-3">
-          <div className="flex gap-3 items-center">
-            <img src={rect} width={20}></img>
-            <p className="font-bold text-xl text-rose-600">Category</p>
-          </div>
-          <div className="mb-5">
-            <p className="text-5xl font-bold">Browse by Category</p>
-          </div>
-          <div className="flex align-content-lg-center justify-center">
-            <img src={categoryimg} width={2000}></img>
-          </div>
-        </div>
         <div>
           <div className="flex gap-3 items-center w-full">
             <img src={rect} width={20}></img>
@@ -35,21 +24,8 @@ const Home = () => {
           </div>
           <Product />
         </div>
-
-        <img src={banner}></img>
-        <div className="flex flex-col gap-3">
-          <div className="flex gap-3 items-center">
-            <img src={rect} width={20}></img>
-            <p className="font-bold text-xl text-rose-600">Featured</p>
-          </div>
-          <div className="mb-5">
-            <p className="text-5xl font-bold">New Arrival</p>
-          </div>
-          <div className="flex align-content-lg-center justify-center">
-            <img src={arrival} width={2000}></img>
-          </div>
-        </div>
-        <div className=" flex item-center">
+        <Explore />
+        <div className=" flex item-center mb-12">
           <img src={feat} width={1500}></img>
         </div>
       </div>
