@@ -46,7 +46,9 @@ const Admindashboard = () => {
       <div className="md:flex content-between gap-12 py-4">
         <AdminMenu />
         <div className="flex-1">
-          <h2 className="font-semibold text-5xl pb-8">Edit your profile</h2>
+          <h2 className="font-semibold text-3xl md:text-5xl pb-8">
+            Edit your profile
+          </h2>
           <p className="text-xl pb-4">Basic info</p>
           <div className="md:flex gap-8">
             <div class="form-floating mb-3 flex-auto">

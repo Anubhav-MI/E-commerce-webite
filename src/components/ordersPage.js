@@ -25,7 +25,7 @@ const OrdersPage = () => {
     }
   }, [auth?.token]);
   return (
-    <div className="mx-12 my-12 ">
+    <div className=" mx-2 md:mx-12 my-12 ">
       <div className="md:flex justify-between">
         <p>Home/My account</p>
         <p> Welcome {auth && auth.user && auth.user.name} !</p>
@@ -37,13 +37,14 @@ const OrdersPage = () => {
           {orders &&
             orders.map((p, i) => {
               return (
-                <div className="border shadow p-8">
+                <div className="border shadow md:p-8">
                   <table className="table">
                     <thead>
                       <tr className="text-xl">
                         <th scope="col">#</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Buyer</th>
+                        {window.innerWidth > 768 && <th scope="col">Buyer</th>}
+                        {/* <th scope="col">Buyer</th> */}
                         <th scope="col">Order date</th>
                         <th scope="col">Payment</th>
                       </tr>
@@ -52,14 +53,15 @@ const OrdersPage = () => {
                       <tr className="text-xl">
                         <td>{i + 1}</td>
                         <td>{p?.status}</td>
-                        <td>{p?.buyer}</td>
+                        {window.innerWidth > 768 && <td>{p?.buyer}</td>}
+                        {/* <td>{p?.buyer}</td> */}
                         <td>{moment(p?.createdAt).fromNow()}</td>
                         <td>{p?.payment.success ? "Success" : "Failed"}</td>
                       </tr>
                     </tbody>
                   </table>
                   <div className="py-8">
-                    {p?.products?.map((p, i) => (
+                    {p?.products?.map((p) => (
                       <div className="flex gap-6">
                         <div>
                           <img src={p.imgURL}></img>

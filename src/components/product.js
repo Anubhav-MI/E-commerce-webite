@@ -31,31 +31,26 @@ const Product = () => {
     fetchdata();
   }, []);
   return (
-    <div className="flex justify-between content-end">
-      {/* <div className="flex flex-col">
-        {avcategory?.map((c) => (
-          <Checkbox key={c._id}>{c.name}</Checkbox>
-        ))}
-      </div> */}
-      <div className="min-h-100 py-12 px-32 ">
-        <div className="grid grid-cols-4 gap-32">
+    <div>
+      <div className="min-h-100 md:py-12 md:px-32 ">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-24">
           {products &&
             products?.data.map((product) => (
-              <div class="card" className="w-[22rem] h-[36rem]">
-                <img
-                  src={product.imgURL}
-                  width={350}
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">{product.title}</h5>
-                  <p class="card-text">{product.price}</p>
-                  <p class="card-text">{product.rating}</p>
-                  <div className="flex gap-10">
-                    <a href="#" class="btn btn-primary">
-                      More Details
-                    </a>
+              <div className="p-4 hover:border shadow flex-col content-between ">
+                <div>
+                  <img className="" src={product.imgURL} alt="..." />
+                </div>
+
+                <div className="mt-4 py-3">
+                  <h5 class=" text-xl pb-2">{product.title}</h5>
+                  <div className="flex justify-between pb-2">
+                    <p class=" text-xl font-semibold">₨.{product.price}</p>
+                    <p class="text-xl rounded bg-green-600 text-white py-1 px-2">
+                      {product.rating}
+                    </p>
+                  </div>
+
+                  <div>
                     <button
                       onClick={() => {
                         setCart([...cart, product]);
@@ -66,7 +61,9 @@ const Product = () => {
                         toast.success("Item added to cart");
                       }}
                     >
-                      <button class="btn btn-primary">Add to cart</button>
+                      <button class="btn btn-primary text-xl">
+                        Add to cart
+                      </button>
                     </button>
                   </div>
                 </div>

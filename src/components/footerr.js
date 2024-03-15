@@ -32,13 +32,16 @@ const Footer = () => {
               <h4>Shopping &amp; Categories</h4>
               <ul>
                 <li>
-                  <a href="#">Men’s Shopping</a>
+                  <a href="#">Laptops</a>
                 </li>
                 <li>
-                  <a href="#">Women’s Shopping</a>
+                  <a href="#">Mobiles</a>
                 </li>
                 <li>
-                  <a href="#">Kid's Shopping</a>
+                  <a href="#">Headphones</a>
+                </li>
+                <li>
+                  <a href="#">Accessories</a>
                 </li>
               </ul>
             </div>
@@ -55,7 +58,7 @@ const Footer = () => {
                   <a href="#">Help</a>
                 </li>
                 <li>
-                  <a href="#">Contact Us</a>
+                  <a href="#">Products</a>
                 </li>
               </ul>
             </div>
@@ -82,13 +85,7 @@ const Footer = () => {
                   Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved.
                   <br />
                   Design:
-                  <a
-                    href="https://templatemo.com"
-                    target="_parent"
-                    title="free css templates"
-                  >
-                    TemplateMo
-                  </a>
+                  <p>Bootstrap</p>
                 </p>
                 <ul>
                   <li>

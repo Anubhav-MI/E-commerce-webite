@@ -81,11 +81,8 @@ const Cartpage = () => {
   }, [auth?.token]);
 
   return (
-    <div className="m-8">
+    <div className="md:m-8">
       <p>Home/Cart</p>
-      {/* <h2 className="text-center font-bold text-5xl mb-4">{`Hello ${
-        auth?.token && auth?.user?.name
-      }`}</h2> */}
       <h4 className="text-center text-2xl md:text-4xl py-8">
         {cart.length >= 1
           ? `You have ${cart.length} items in your cart ${
@@ -95,9 +92,9 @@ const Cartpage = () => {
       </h4>
       {!cart.length < 1 && (
         <div className="md:mx-28 py-6 md:flex  justify-around items-center gap-24 p-8 border shadow">
-          <div className="md:mb-14">
+          <div className="mb-4 md:mb-14">
             {cart?.map((p) => (
-              <div className="flex gap-3">
+              <div className="flex gap-3 items-center mb-4">
                 <div className="pb-8">
                   <img src={p.imgURL} alt={p.title} />
                 </div>
@@ -115,6 +112,7 @@ const Cartpage = () => {
                 </div>
               </div>
             ))}
+            <hr />
           </div>
           <div className="text-center">
             <h2 className="text-2xl font-semibold md:text-5xl md:font-bold">

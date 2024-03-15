@@ -2,7 +2,7 @@ import Home from "./components/home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Signup from "./components/signup";
 import Login from "./components/login";
-import Titlebar from "./components/titlebar";
+
 import Navbar from "./components/navbar";
 import Dashboard from "./components/admin/dashboard";
 import UserDetails from "./components/admin/users";
@@ -17,7 +17,6 @@ import ProductPage from "./components/productPage";
 function App() {
   return (
     <Router>
-      <Titlebar />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

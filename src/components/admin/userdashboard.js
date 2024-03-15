@@ -40,7 +40,7 @@ const Userdashboard = () => {
   }, [auth?.token, auth]);
 
   return (
-    <div className="mx-12 my-12 ">
+    <div className="md:mx-12 my-4 md:my-12 ">
       <div className="md:flex justify-between">
         <p>Home/My account</p>
         <p> Welcome {auth && auth.user && auth.user.name} !</p>
@@ -48,7 +48,9 @@ const Userdashboard = () => {
       <div className="md:flex content-between gap-12 py-4 ">
         <Usermenu className="flex-none" />
         <div className="flex-1">
-          <h2 className="font-semibold text-5xl pb-8">Edit your profile</h2>
+          <h2 className="font-semibold text-3xl md:text-5xl pb-8">
+            Edit your profile
+          </h2>
           <p className="text-xl pb-4">Basic info</p>
           <div className="md:flex gap-8">
             <div class="form-floating mb-3 flex-auto">

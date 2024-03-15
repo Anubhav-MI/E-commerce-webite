@@ -5,6 +5,8 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+import toast from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 const Signup = () => {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
@@ -19,8 +21,8 @@ const Signup = () => {
         password,
       })
       .then((response) => {
-        alert("User registered successfully");
-        navigate("/", {
+        toast.success("User registered successfully");
+        navigate("/login", {
           replace: true,
         });
         setname("");
@@ -31,12 +33,14 @@ const Signup = () => {
   };
   return (
     <div className="App">
-      <div className="flex">
+      <div className="md:flex gap-10">
         <div>
           <img className="h-4/6" src={signimg} width={1100} alt=".." />
         </div>
-        <div className="flex flex-col pt-16 px-16 gap-8">
-          <h2 className="font-normal text-5xl">Create an account</h2>
+        <div className="flex flex-col pt-16 px-4 md:px-16 gap-3 md:gap-8">
+          <h2 className="font-normal text-3xl md:text-5xl">
+            Create a new account
+          </h2>
           <p>Enter your deatils below</p>
           <div class="form-floating mb-3">
             <input
@@ -56,7 +60,7 @@ const Signup = () => {
               placeholder="name@example.com"
               onChange={(e) => setemail(e.target.value)}
             />
-            <label for="floatingInput">Email address or Phone number</label>
+            <label for="floatingInput">Email address</label>
           </div>
           <div class="form-floating">
             <input

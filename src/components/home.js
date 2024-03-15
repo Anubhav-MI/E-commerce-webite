@@ -12,7 +12,7 @@ const Home = () => {
   //
   return (
     <div>
-      <div className="App gap-32 flex flex-col items-center justify-center">
+      <div className="App gap-32 flex flex-col items-center justify-centerc px-4 md:px-10">
         <Hero />
         <div>
           <div className="flex gap-3 items-center w-full">

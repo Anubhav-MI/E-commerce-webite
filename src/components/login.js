@@ -6,6 +6,8 @@ import { GoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import { useAuth } from "../context/auth";
+import toast from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 const Login = () => {
   const navigate = useNavigate();
   const [email, setemail] = useState("");
@@ -22,14 +24,13 @@ const Login = () => {
         password,
       })
       .then((response) => {
-        alert("User logged successfully");
         setAuth({
           ...auth,
           user: response.data.user,
           token: response.data.token,
         });
         window.localStorage.setItem("auth", JSON.stringify(response.data));
-
+        toast.success("User logged in successfully");
         navigate("/", {
           replace: true,
         });
@@ -39,7 +40,7 @@ const Login = () => {
       .catch((error) => {
         console.error("Login error:", error);
         if (error.response && error.response.status === 400) {
-          alert("Wrong credentials");
+          toast.error("Wrong credentials");
         } else {
           alert("An error occurred during login. Please try again later.");
         }
@@ -47,13 +48,13 @@ const Login = () => {
   };
   return (
     <div>
-      <div className="md:flex">
+      <div className="md:flex gap-10">
         <div>
           <img className="h-4/6" src={signimg} width={1100} alt=".." />
         </div>
         <div className="flex flex-col pt-16 px-4 md:px-16 gap-8">
           <h2 className="font-normal text-3xl md:text-5xl">
-            Create an account
+            Login to your account
           </h2>
           <p>Enter your deatils below</p>
           <div class="form-floating mb-3">
@@ -101,8 +102,13 @@ const Login = () => {
           {/* <div className="flex gap-8 text-center">
             <a>Forgot password?</a>
           </div> */}
+          <div className="flex gap-8 text-center">
+            <p>Don't have an account?</p>
+            <a href="/signup">Sign up</a>
+          </div>
         </div>
       </div>
+      <Toaster></Toaster>
     </div>
   );
 };
