@@ -46,11 +46,11 @@ const ManageOrders = () => {
   }, [auth?.token]);
 
   return (
-    <div className="flex gap-8">
+    <div className="md:flex content-between gap-12 py-4 mx-12 my-12">
       <div>
         <AdminMenu />
       </div>
-      <div>
+      <div className="flex-1">
         <div>
           <h2 className="text-center font-bold text-5xl pb-8">All Orders</h2>
           {orders &&

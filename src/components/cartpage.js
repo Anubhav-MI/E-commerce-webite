@@ -6,7 +6,7 @@ import { json, useNavigate } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 import toast from "react-hot-toast";
 const Cartpage = () => {
-  const [auth, setAuth] = useAuth();
+  const [auth] = useAuth();
   const [cart, setcart] = useCart();
   const [clientToken, setclientToken] = useState("");
   const [instance, setinstance] = useState("");
@@ -83,18 +83,80 @@ const Cartpage = () => {
   return (
     <div className="m-8">
       <p>Home/Cart</p>
-      <h2 className="text-center font-bold text-5xl">{`Hello ${
+      {/* <h2 className="text-center font-bold text-5xl mb-4">{`Hello ${
         auth?.token && auth?.user?.name
-      }`}</h2>
-      <h4>
-        {cart.length > 1
+      }`}</h2> */}
+      <h4 className="text-center text-2xl md:text-4xl py-8">
+        {cart.length >= 1
           ? `You have ${cart.length} items in your cart ${
               auth.token ? "" : "Please login to checkout"
             }`
           : "Your cart is empty"}
       </h4>
-      <div className="flex justify-between">
-        <div>
+      {!cart.length < 1 && (
+        <div className="md:mx-28 py-6 md:flex  justify-around items-center gap-24 p-8 border shadow">
+          <div className="md:mb-14">
+            {cart?.map((p) => (
+              <div className="flex gap-3">
+                <div className="pb-8">
+                  <img src={p.imgURL} alt={p.title} />
+                </div>
+                <div>
+                  <p className="text-lg md:text-2xl">{p.title}</p>
+                  <p className="text-lg md:text-2xl">Rs{p.price}</p>
+                  <p className="text-lg md:text-2xl">{p.rating}</p>
+                  <p className="text-lg md:text-2xl">{p.category}</p>
+                  <button
+                    onClick={() => removeCartItem(p._id)}
+                    className="text-lg btn btn-primary"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center">
+            <h2 className="text-2xl font-semibold md:text-5xl md:font-bold">
+              Cart Summary
+            </h2>
+            <p className="text-xl md:text-2xl py-3">Total|Checkout|Payment</p>
+            <h4 className="text-xl md:text-3xl">Total: Rs{totalPrice()}</h4>
+            <div className="mt-4">
+              {!clientToken || !cart?.length ? (
+                "Error"
+              ) : (
+                <>
+                  <DropIn
+                    options={{
+                      authorization: clientToken,
+                      paypal: {
+                        flow: "vault",
+                      },
+                    }}
+                    onInstance={(instance) => setinstance(instance)}
+                  />
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => {
+                      console.log("Button clicked");
+                      handlePayment();
+                    }}
+                    // disabled={!loading || !instance || auth?.token}
+                  >
+                    {loading ? "Processing..." : "Make payment"}
+                  </button>
+                </>
+              )}
+            </div>
+            <p className="py-4">
+              Please choose card option to make payment here
+            </p>
+          </div>
+        </div>
+      )}
+      {/* <div className="flex gap-12">
+        <div className="flex-auto">
           <table class="table">
             <thead>
               <tr>
@@ -121,7 +183,7 @@ const Cartpage = () => {
             ))}
           </table>
         </div>
-        <div className="text-center">
+        <div className="text-center flex-auto">
           <h2>Cart Summary</h2>
           <p>Total|Checkout|Payment</p>
           <hr />
@@ -154,7 +216,7 @@ const Cartpage = () => {
             )}
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

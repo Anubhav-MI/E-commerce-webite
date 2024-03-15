@@ -75,7 +75,7 @@ const Signup = () => {
           >
             Create Account
           </button>
-          <GoogleOAuthProvider clientId="189418374010-d61841o55g1nhhaqj73pov0o38v2dld2.apps.googleusercontent.com">
+          {/* <GoogleOAuthProvider clientId="189418374010-d61841o55g1nhhaqj73pov0o38v2dld2.apps.googleusercontent.com">
             <GoogleLogin
               onSuccess={(credentialResponse) => {
                 const decoded = jwtDecode(credentialResponse.credential);
@@ -89,7 +89,7 @@ const Signup = () => {
                 console.log("Login Failed");
               }}
             />
-          </GoogleOAuthProvider>
+          </GoogleOAuthProvider> */}
           <div className="flex gap-8 text-center">
             <p>Already have an account?</p>
             <a href="/Login">Log in</a>

@@ -47,12 +47,14 @@ const Login = () => {
   };
   return (
     <div>
-      <div className="flex">
+      <div className="md:flex">
         <div>
           <img className="h-4/6" src={signimg} width={1100} alt=".." />
         </div>
-        <div className="flex flex-col pt-16 px-16 gap-8">
-          <h2 className="font-normal text-5xl">Create an account</h2>
+        <div className="flex flex-col pt-16 px-4 md:px-16 gap-8">
+          <h2 className="font-normal text-3xl md:text-5xl">
+            Create an account
+          </h2>
           <p>Enter your deatils below</p>
           <div class="form-floating mb-3">
             <input
@@ -82,7 +84,7 @@ const Login = () => {
           >
             Login
           </button>
-          <GoogleOAuthProvider clientId="189418374010-d61841o55g1nhhaqj73pov0o38v2dld2.apps.googleusercontent.com">
+          {/* <GoogleOAuthProvider clientId="189418374010-d61841o55g1nhhaqj73pov0o38v2dld2.apps.googleusercontent.com">
             <GoogleLogin
               onSuccess={(credentialResponse) => {
                 const decoded = jwtDecode(credentialResponse.credential);
@@ -95,10 +97,10 @@ const Login = () => {
                 console.log("Login Failed");
               }}
             />
-          </GoogleOAuthProvider>
-          <div className="flex gap-8 text-center">
+          </GoogleOAuthProvider> */}
+          {/* <div className="flex gap-8 text-center">
             <a>Forgot password?</a>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

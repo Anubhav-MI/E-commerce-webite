@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from "react";
 import axios from "axios";
+import Usermenu from "./usermenu";
 import { useAuth } from "../context/auth";
 import moment from "moment";
 const OrdersPage = () => {
@@ -24,50 +25,63 @@ const OrdersPage = () => {
     }
   }, [auth?.token]);
   return (
-    <div>
-      <h2 className="text-center font-bold text-5xl pb-8">All Orders</h2>
-      {orders &&
-        orders.map((p, i) => {
-          return (
-            <div className="border shadow">
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Buyer</th>
-                    <th scope="col">Order date</th>
-                    <th scope="col">Payment</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>{i + 1}</td>
-                    <td>{p?.status}</td>
-                    <td>{p?.buyer}</td>
-                    <td>{moment(p?.createdAt).fromNow()}</td>
-                    <td>{p?.payment.success ? "Success" : "Failed"}</td>
-                  </tr>
-                </tbody>
-              </table>
-              <div>
-                {p?.products?.map((p, i) => (
-                  <div className="flex gap-6">
-                    <div>
-                      <img src={p.imgURL}></img>
-                    </div>
-                    <div>
-                      <p>Product name : {p.title}</p>
-                      <p>Category : {p.category}</p>
-                      <p>Price : {p.price}</p>
-                      <p>Rating : {p.rating}</p>
-                    </div>
+    <div className="mx-12 my-12 ">
+      <div className="md:flex justify-between">
+        <p>Home/My account</p>
+        <p> Welcome {auth && auth.user && auth.user.name} !</p>
+      </div>
+      <div className="md:flex content-between gap-12 py-4 ">
+        <Usermenu className="flex-none" />
+        <div className="flex-1">
+          <h2 className="text-center font-bold text-5xl pb-8 ">All Orders</h2>
+          {orders &&
+            orders.map((p, i) => {
+              return (
+                <div className="border shadow p-8">
+                  <table className="table">
+                    <thead>
+                      <tr className="text-xl">
+                        <th scope="col">#</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Buyer</th>
+                        <th scope="col">Order date</th>
+                        <th scope="col">Payment</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="text-xl">
+                        <td>{i + 1}</td>
+                        <td>{p?.status}</td>
+                        <td>{p?.buyer}</td>
+                        <td>{moment(p?.createdAt).fromNow()}</td>
+                        <td>{p?.payment.success ? "Success" : "Failed"}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div className="py-8">
+                    {p?.products?.map((p, i) => (
+                      <div className="flex gap-6">
+                        <div>
+                          <img src={p.imgURL}></img>
+                        </div>
+                        <div>
+                          <p className="text-xl pb-2">
+                            Product name : {p.title}
+                          </p>
+                          <p className="text-xl pb-2">
+                            Category : {p.category}
+                          </p>
+                          <p className="text-xl pb-2">Price : {p.price}</p>
+                          <p className="text-xl pb-2">Rating : {p.rating}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </div>
-          );
-        })}
+                </div>
+              );
+            })}
+        </div>
+      </div>
     </div>
   );
 };

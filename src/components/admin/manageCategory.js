@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import AdminMenu from "./adminMenu";
 const ManageCategory = () => {
   const [category, setcategory] = useState("");
   const handlesubmit = () => {
@@ -14,12 +15,12 @@ const ManageCategory = () => {
   };
 
   return (
-    <div>
-      {" "}
-      <div className="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end py-28 ">
-        <p>Add new Category</p>
+    <div className="md:flex content-between gap-12 py-4 mx-12 my-12">
+      <AdminMenu />
+      <div className="p-5 bg-info bg-opacity-10 border border-info border-start-0 rounded-end py-28 flex-1 ">
+        <p className="text-4xl font-bold pb-8">Add new Category</p>
         <input
-          className="p-2 m-2"
+          className="p-2 mr-7"
           placeholder="Enter category name"
           onChange={(e) => setcategory(e.target.value)}
           value={category}

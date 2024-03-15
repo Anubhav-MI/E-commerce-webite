@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import AdminMenu from "./adminMenu";
 import { Select } from "antd";
 const { Option } = Select;
 
@@ -73,74 +74,75 @@ const Manageproducts = () => {
   };
 
   return (
-    <div className="m-16 p-9">
-      <div className="flex gap-6">
-        <div class="mb-3 w-full max-w-96">
-          <label for="exampleFormControlInput1" class="form-label">
-            Product name
-          </label>
-          <input
-            value={title}
-            onChange={(e) => {
-              settitle(e.target.value);
-            }}
-            type="name"
-            class="form-control"
-            id="exampleFormControlInput1"
-            placeholder="Product name"
-          />
+    <div className="md:flex content-between gap-12 py-4 mx-12 my-12">
+      <AdminMenu />
+      <div className="flex-1">
+        <div className="flex gap-6">
+          <div class="mb-3 w-full max-w-96">
+            <label for="exampleFormControlInput1" class="form-label">
+              Product name
+            </label>
+            <input
+              value={title}
+              onChange={(e) => {
+                settitle(e.target.value);
+              }}
+              type="name"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="Product name"
+            />
+          </div>
+          <div class="mb-3  w-full max-w-96">
+            <label for="exampleFormControlInput1" class="form-label">
+              Image url
+            </label>
+            <input
+              value={imgURL}
+              onChange={(e) => {
+                setimgURL(e.target.value);
+              }}
+              type="url"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="www.exampleimage.com"
+            />
+          </div>
         </div>
-        <div class="mb-3  w-full max-w-96">
-          <label for="exampleFormControlInput1" class="form-label">
-            Image url
-          </label>
-          <input
-            value={imgURL}
-            onChange={(e) => {
-              setimgURL(e.target.value);
-            }}
-            type="url"
-            class="form-control"
-            id="exampleFormControlInput1"
-            placeholder="www.exampleimage.com"
-          />
+        <div className="flex gap-6">
+          <div class="mb-3 w-full max-w-96">
+            <label for="exampleFormControlInput1" class="form-label">
+              Price
+            </label>
+            <input
+              value={price}
+              onChange={(e) => {
+                setprice(e.target.value);
+              }}
+              type="price"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="250"
+            />
+          </div>
+          <div class="mb-3 w-full max-w-96">
+            <label for="exampleFormControlInput1" class="form-label">
+              Rating
+            </label>
+            <input
+              value={rating}
+              onChange={(e) => {
+                setrating(e.target.value);
+              }}
+              type="name"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="4.5"
+            />
+          </div>
         </div>
-      </div>
-      <div className="flex gap-6">
-        {" "}
-        <div class="mb-3 w-full max-w-96">
-          <label for="exampleFormControlInput1" class="form-label">
-            Price
-          </label>
-          <input
-            value={price}
-            onChange={(e) => {
-              setprice(e.target.value);
-            }}
-            type="price"
-            class="form-control"
-            id="exampleFormControlInput1"
-            placeholder="250"
-          />
-        </div>
-        <div class="mb-3 w-full max-w-96">
-          <label for="exampleFormControlInput1" class="form-label">
-            Rating
-          </label>
-          <input
-            value={rating}
-            onChange={(e) => {
-              setrating(e.target.value);
-            }}
-            type="name"
-            class="form-control"
-            id="exampleFormControlInput1"
-            placeholder="4.5"
-          />
-        </div>
-      </div>
-      <div className="m-1  w-full max-w-96">
-        {/* <Select
+        <div className="m-1  w-full max-w-96">
+          {/* <Select
           bordered={false}
           placeholder="Select a category"
           size="large"
@@ -157,61 +159,62 @@ const Manageproducts = () => {
             </Option>
           ))}
         </Select> */}
-      </div>
-      <div class="mb-3 w-full max-w-96">
-        <label for="exampleFormControlInput1" class="form-label">
-          Category
-        </label>
-        <input
-          value={category}
-          onChange={(e) => {
-            setcategory(e.target.value);
-          }}
-          type="name"
-          class="form-control"
-          id="exampleFormControlInput1"
-          placeholder="Laptops"
-        />
-      </div>
-      <button onClick={handlesubmit} type="button" class="btn btn-warning ">
-        Submit
-      </button>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
+        </div>
+        <div class="mb-3 w-full max-w-96">
+          <label for="exampleFormControlInput1" class="form-label">
+            Category
+          </label>
+          <input
+            value={category}
+            onChange={(e) => {
+              setcategory(e.target.value);
+            }}
+            type="name"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="Laptops"
+          />
+        </div>
+        <button onClick={handlesubmit} type="button" class="btn btn-warning ">
+          Submit
+        </button>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
 
-            <th scope="col">Name</th>
-            <th scope="col">Category</th>
-            <th scope="col">Price</th>
-            <th scope="col">Rating</th>
-            <th scope="col">Options</th>
-          </tr>
-        </thead>
+              <th scope="col">Name</th>
+              <th scope="col">Category</th>
+              <th scope="col">Price</th>
+              <th scope="col">Rating</th>
+              <th scope="col">Options</th>
+            </tr>
+          </thead>
 
-        {products &&
-          products?.data.map((product) => (
-            <tbody>
-              <tr>
-                <th scope="row">#</th>
-                <td>{product.title}</td>
-                <td>{product.category}</td>
-                <td>{product.price}</td>
-                <td>{product.rating}</td>
-                {/* <td>{user.rating}</td> */}
-                <td>
-                  <button
-                    onClick={() => handledelete(product._id)}
-                    type="button"
-                    class="rounded-lg bg-red-600 py-2 px-4"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          ))}
-      </table>
+          {products &&
+            products?.data.map((product) => (
+              <tbody>
+                <tr>
+                  <th scope="row">#</th>
+                  <td>{product.title}</td>
+                  <td>{product.category}</td>
+                  <td>{product.price}</td>
+                  <td>{product.rating}</td>
+                  {/* <td>{user.rating}</td> */}
+                  <td>
+                    <button
+                      onClick={() => handledelete(product._id)}
+                      type="button"
+                      class="rounded-lg bg-red-600 py-2 px-4"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            ))}
+        </table>
+      </div>
     </div>
   );
 };
