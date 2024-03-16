@@ -34,32 +34,32 @@ const Navbar = () => {
             <div class="row">
               <div class="col-12">
                 <nav class="main-nav">
-                  <a href="/" class="logo pt-3">
+                  <Link to="/" class="logo pt-3">
                     <img src="assets/images/logo.png" />
-                  </a>
+                  </Link>
 
                   <ul class="nav">
                     <li>
-                      <a href="/" class="active">
+                      <Link to="/" class="active">
                         Home
-                      </a>
+                      </Link>
                     </li>
                     <li class="scroll-to-section">
-                      <a href="/productpage" className="basis-1/4 text-2xl">
+                      <Link to="/productpage" className="basis-1/4 text-2xl">
                         Products
-                      </a>
+                      </Link>
                     </li>
                     <li class="scroll-to-section">
-                      <a href="/about" className="basis-1/4 text-2xl">
+                      <Link to="/about" className="basis-1/4 text-2xl">
                         About
-                      </a>
+                      </Link>
                     </li>
                     <li class="scroll-to-section">
                       {!auth.user ? (
                         <>
-                          <a className="basis-1/4 text-2xl" href="/signup">
+                          <Link className="basis-1/4 text-2xl" to="/signup">
                             Signup
-                          </a>
+                          </Link>
                         </>
                       ) : (
                         <>
@@ -71,9 +71,9 @@ const Navbar = () => {
                     </li>
                     <li class="scroll-to-section">
                       <div className="flex gap-12 justify-between items-center">
-                        <a>
+                        <Link>
                           <img src={wishlist} width={40} height={40}></img>
-                        </a>
+                        </Link>
                         <Badge count={cart?.length} showZero>
                           <Link to="/cart">
                             <img
@@ -85,15 +85,15 @@ const Navbar = () => {
                           </Link>
                         </Badge>
 
-                        <a href="/admin">
+                        <Link to="/admin">
                           <img src={profile} width={30} height={30}></img>
-                        </a>
+                        </Link>
                       </div>
                     </li>
                   </ul>
-                  <a class="menu-trigger">
+                  <Link class="menu-trigger">
                     <span>Menu</span>
-                  </a>
+                  </Link>
                 </nav>
               </div>
             </div>
@@ -117,43 +117,43 @@ const Navbar = () => {
             <div className="flex flex-col items-center  mt-4 ">
               <ul className="text-2xl text-center text-black font-semibold">
                 <li className="pb-4">
-                  <a href="/">Home</a>
+                  <Link to="/">Home</Link>
                 </li>
                 <li className="pb-4">
-                  <a href="/productpage" className=" text-2xl">
+                  <Link to="/productpage" className=" text-2xl">
                     Products
-                  </a>
+                  </Link>
                 </li>
                 <li className="pb-4">
-                  <a href="/about" className=" text-2xl">
+                  <Link to="/about" className=" text-2xl">
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li className="pb-4">
                   {!auth.user ? (
                     <>
-                      <a className=" text-2xl" href="/signup">
+                      <Link className=" text-2xl" href="/signup">
                         Signup
-                      </a>
+                      </Link>
                     </>
                   ) : (
                     <>
-                      <a className="text-2xl" onClick={handlelogout}>
+                      <Link className="text-2xl" onClick={handlelogout}>
                         Logout
-                      </a>
+                      </Link>
                     </>
                   )}
                 </li>
                 <li>
                   <div className="items-center text-2xl flex flex-col pb-4">
                     <Badge count={cart?.length} showZero>
-                      <a className="text-2xl pb-4" href="/cart">
+                      <Link className="text-2xl pb-4" to="/cart">
                         Cart
-                      </a>
+                      </Link>
                     </Badge>
-                    <a className="pt-2" href="/admin">
+                    <Link className="pt-2" to="/admin">
                       Account
-                    </a>
+                    </Link>
                   </div>
                 </li>
               </ul>

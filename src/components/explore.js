@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Explore = () => {
   return (
@@ -31,7 +32,7 @@ const Explore = () => {
                   stay connected and elevate your digital lifestyle.
                 </span>
                 <div class="main-border-button">
-                  <a href="productpage">Discover More</a>
+                  <Link to="productpage">Discover More</Link>
                 </div>
               </div>
             </div>

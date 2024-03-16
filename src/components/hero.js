@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <div>
@@ -16,7 +16,7 @@ const Hero = () => {
                       Excellence."
                     </span>
                     <div class="main-border-button">
-                      <a href="productpage">Purchase Now!</a>
+                      <Link to="productpage">Purchase Now!</Link>
                     </div>
                   </div>
                   <img src="assets/images/hero.jpg" alt="" />
@@ -38,7 +38,7 @@ const Hero = () => {
                             <h4>Laptops</h4>
                             <p>Buy best in category laptops</p>
                             <div class="main-border-button">
-                              <a href="/productpage">Discover More</a>
+                              <Link to="/productpage">Discover More</Link>
                             </div>
                           </div>
                         </div>
@@ -58,7 +58,7 @@ const Hero = () => {
                             <h4>Smartphones</h4>
                             <p>Latest smartphones at best prices</p>
                             <div class="main-border-button">
-                              <a href="productpage">Discover More</a>
+                              <Link to="productpage">Discover More</Link>
                             </div>
                           </div>
                         </div>
@@ -78,7 +78,7 @@ const Hero = () => {
                             <h4>Headphones</h4>
                             <p>Best in class headphones for music lovers</p>
                             <div class="main-border-button">
-                              <a href="productpage">Discover More</a>
+                              <Link to="productpage">Discover More</Link>
                             </div>
                           </div>
                         </div>
@@ -98,7 +98,7 @@ const Hero = () => {
                             <h4>Accessories</h4>
                             <p>Best in class accessories</p>
                             <div class="main-border-button">
-                              <a href="productpage">Discover More</a>
+                              <Link to="productpage">Discover More</Link>
                             </div>
                           </div>
                         </div>
