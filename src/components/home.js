@@ -1,11 +1,10 @@
 import React from "react";
 import Hero from "./hero";
 import Product from "./product";
-import categoryimg from "../Images/category.png";
-import arrival from "../Images/arrival.png";
 import rect from "../Images/Rect.png";
-import banner from "../Images/banner.png";
-import feat from "../Images/feat.png";
+import feat1 from "../Images/feat1.png";
+import feat2 from "../Images/feat2.png";
+import feat3 from "../Images/feat3.png";
 import { Toaster } from "react-hot-toast";
 import Explore from "./explore";
 const Home = () => {
@@ -25,8 +24,10 @@ const Home = () => {
           <Product />
         </div>
         <Explore />
-        <div className=" flex item-center mb-12">
-          <img src={feat} width={1500}></img>
+        <div className="flex flex-col md:flex-row gap-24 item-center mb-12">
+          <img src={feat1} width={400}></img>
+          <img src={feat2} width={400}></img>
+          <img src={feat3} width={400}></img>
         </div>
       </div>
       <Toaster></Toaster>

@@ -68,7 +68,7 @@ const Cartpage = () => {
       window.localStorage.removeItem("cart");
       setcart([]);
       toast.success("Payment successful");
-      navigate("/admin");
+      navigate("/order");
     } catch (err) {
       setloading(false);
       console.log(err);
@@ -153,68 +153,6 @@ const Cartpage = () => {
           </div>
         </div>
       )}
-      {/* <div className="flex gap-12">
-        <div className="flex-auto">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Product</th>
-                <th scope="col">Category</th>
-                <th scope="col">Price</th>
-                <th scope="col">Options</th>
-              </tr>
-            </thead>
-
-            {cart?.map((p) => (
-              <tbody>
-                <tr>
-                  <td>{p.title}</td>
-                  <td>{p.category}</td>
-                  <td>{p.price}</td>
-                  <td>
-                    <button onClick={() => removeCartItem(p._id)}>
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            ))}
-          </table>
-        </div>
-        <div className="text-center flex-auto">
-          <h2>Cart Summary</h2>
-          <p>Total|Checkout|Payment</p>
-          <hr />
-          <h4>Total: Rs{totalPrice()}</h4>
-          <div className="mt-4">
-            {!clientToken || !cart?.length ? (
-              "Error"
-            ) : (
-              <>
-                <DropIn
-                  options={{
-                    authorization: clientToken,
-                    paypal: {
-                      flow: "vault",
-                    },
-                  }}
-                  onInstance={(instance) => setinstance(instance)}
-                />
-                <button
-                  className="btn btn-primary"
-                  onClick={() => {
-                    console.log("Button clicked");
-                    handlePayment();
-                  }}
-                  // disabled={!loading || !instance || auth?.token}
-                >
-                  {loading ? "Processing..." : "Make payment"}
-                </button>
-              </>
-            )}
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };

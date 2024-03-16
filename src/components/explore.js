@@ -9,38 +9,29 @@ const Explore = () => {
             <div class="col-lg-6">
               <div class="left-content">
                 <h2>Explore Our Products</h2>
-                <span>
-                  You are allowed to use this HexaShop HTML CSS template. You
-                  can feel free to modify or edit this layout. You can convert
-                  this template as any kind of ecommerce CMS theme as you wish.
+                <span className="pb-16">
+                  Welcome to our electronic wonderland! Dive into a world of
+                  cutting-edge technology and innovative gadgets. Whether you're
+                  looking for the latest smartphones, sleek laptops, or smart
+                  home devices, we've curated an unparalleled collection just
+                  for you. Discover the perfect blend of style, functionality,
+                  and performance in every product we offer.
                 </span>
-                <div class="quote">
-                  <i class="fa fa-quote-left"></i>
-                  <p>
-                    You are not allowed to redistribute this template ZIP file
-                    on any other website.
+                <div class="quote pb-16">
+                  <i class="fa fa-quote-left "></i>
+                  <p className="text-4xl">
+                    "The future is already here - it's just not evenly
+                    distributed."
                   </p>
                 </div>
-                <p>
-                  There are 5 pages included in this HexaShop Template and we
-                  are providing it to you for absolutely free of charge at our
-                  TemplateMo website. There are web development costs for us.
-                </p>
-                <p>
-                  If this template is beneficial for your website or business,
-                  please kindly
-                  <a
-                    rel="nofollow"
-                    href="https://paypal.me/templatemo"
-                    target="_blank"
-                  >
-                    support us
-                  </a>
-                  a little via PayPal. Please also tell your friends about our
-                  great website. Thank you.
-                </p>
+                <span>
+                  Explore our wide range of electronic items and experience the
+                  future today. From state-of-the-art entertainment systems to
+                  powerful computing devices, we have everything you need to
+                  stay connected and elevate your digital lifestyle.
+                </span>
                 <div class="main-border-button">
-                  <a href="products.html">Discover More</a>
+                  <a href="productpage">Discover More</a>
                 </div>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import wishlist from "./../Images/Wishlist.png";
 import cartimg from "./../Images/cart2.png";
 import profile from "./../Images/user.png";
@@ -23,6 +23,9 @@ const Navbar = () => {
     });
     localStorage.removeItem("auth");
   };
+  useEffect(() => {
+    settap(false);
+  }, []);
   return (
     <div className=" mb-24">
       {window.innerWidth > 768 ? (

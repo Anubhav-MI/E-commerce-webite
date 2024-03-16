@@ -10,7 +10,7 @@ const UserDetails = () => {
         const data = await axios.post("http://localhost:3001/deleteusers", {
           _id: id,
         });
-        console.log(data);
+        // console.log(data);
         alert("Deleted Successfully");
       } catch (error) {
         console.log(error);
@@ -24,7 +24,7 @@ const UserDetails = () => {
     const fetchdata = async () => {
       const data = await axios.get("http://localhost:3001/userdetails");
       setusers(data);
-      console.log(data.data);
+      // console.log(data.data);
       // console.log(products.data[0].title);
     };
     fetchdata();

@@ -46,7 +46,7 @@ const ManageOrders = () => {
   }, [auth?.token]);
 
   return (
-    <div className="md:flex content-between gap-12 py-4 mx-12 my-12">
+    <div className="md:flex content-between gap-12 py-4 mx-2 md:mx-12 my-12">
       <div>
         <AdminMenu />
       </div>
@@ -56,14 +56,17 @@ const ManageOrders = () => {
           {orders &&
             orders.map((p, i) => {
               return (
-                <div className="border shadow">
+                <div className="border shadow md:p-4">
                   <table className="table">
                     <thead>
                       <tr>
                         <td scope="col">#</td>
                         <td scope="col">Status</td>
                         <td scope="col">Buyer</td>
-                        <td scope="col">Order date</td>
+                        {window.innerWidth > 768 && (
+                          <td scope="col">Order date</td>
+                        )}
+                        {/* <td scope="col">Order date</td> */}
                         <td scope="col">Payment</td>
                       </tr>
                     </thead>
@@ -82,7 +85,10 @@ const ManageOrders = () => {
                           ))}
                         </Select>
                         <th>{p?.buyer}</th>
-                        <th>{moment(p?.createdAt).fromNow()}</th>
+                        {window.innerWidth > 768 && (
+                          <th>{moment(p?.createdAt).fromNow()}</th>
+                        )}
+                        {/* <th>{moment(p?.createdAt).fromNow()}</th> */}
                         <th>{p?.payment.success ? "Success" : "Failed"}</th>
                       </tr>
                     </tbody>
@@ -90,7 +96,7 @@ const ManageOrders = () => {
                   <div>
                     {p?.products?.map((p, i) => (
                       <div className="flex gap-6">
-                        <div>
+                        <div className="max-w-64">
                           <img src={p.imgURL}></img>
                         </div>
                         <div>

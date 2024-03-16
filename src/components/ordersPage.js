@@ -12,7 +12,7 @@ const OrdersPage = () => {
       const { data } = await axios.post("http://localhost:3001/order", {
         buyer: user,
       });
-      console.log(data);
+      console.log(data[0].products);
       setorders(data);
     } catch (err) {
       console.log(err);
@@ -62,8 +62,8 @@ const OrdersPage = () => {
                   </table>
                   <div className="py-8">
                     {p?.products?.map((p) => (
-                      <div className="flex gap-6">
-                        <div>
+                      <div className="flex gap-6 items-center">
+                        <div className="max-w-64">
                           <img src={p.imgURL}></img>
                         </div>
                         <div>

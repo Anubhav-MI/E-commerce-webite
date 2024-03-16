@@ -42,15 +42,11 @@ const Product = () => {
                 </div>
 
                 <div className="mt-4 py-3">
-                  <h5 class=" text-xl pb-2">{product.title}</h5>
-                  <div className="flex justify-between pb-2">
-                    <p class=" text-xl font-semibold">₨.{product.price}</p>
-                    <p class="text-xl rounded bg-green-600 text-white py-1 px-2">
-                      {product.rating}
-                    </p>
-                  </div>
+                  <h5 class=" text-xl pb-4">{product.title}</h5>
 
-                  <div>
+                  <p class="text-xl font-semibold pb-4">₨.{product.price}</p>
+
+                  <div className="flex justify-between pb-4">
                     <button
                       onClick={() => {
                         setCart([...cart, product]);
@@ -65,6 +61,9 @@ const Product = () => {
                         Add to cart
                       </button>
                     </button>
+                    <p class="text-xl rounded bg-green-600 text-white py-1 px-3">
+                      {product.rating}
+                    </p>
                   </div>
                 </div>
               </div>
