@@ -5,6 +5,7 @@ import axios from "axios";
 import Usermenu from "../usermenu";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
+import { baseURL } from "../baseURL";
 const Userdashboard = () => {
   const [auth] = useAuth();
 
@@ -21,8 +22,13 @@ const Userdashboard = () => {
         return;
       } else {
         const { data } = await axios.put(
-          `http://localhost:3001/updatepassword/${userId}`,
-          { name, email, password, newpassword }
+          `${baseURL}/updatepassword/${userId}`,
+          {
+            name,
+            email,
+            password,
+            newpassword,
+          }
         );
         console.log(data);
         toast.success("Password updated successfully");

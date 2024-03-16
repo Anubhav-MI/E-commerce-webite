@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AdminMenu from "./adminMenu";
+import { baseURL } from "../baseURL";
 const UserDetails = () => {
   const [users, setusers] = useState();
 
   const handledelete = async (id) => {
     if (window.confirm("Are you sure u want to delete this user?")) {
       try {
-        const data = await axios.post("http://localhost:3001/deleteusers", {
+        const data = await axios.post(`${baseURL}/deleteusers`, {
           _id: id,
         });
         // console.log(data);
@@ -22,7 +23,7 @@ const UserDetails = () => {
   };
   useEffect(() => {
     const fetchdata = async () => {
-      const data = await axios.get("http://localhost:3001/userdetails");
+      const data = await axios.get(`${baseURL}/userdetails`);
       setusers(data);
       // console.log(data.data);
       // console.log(products.data[0].title);

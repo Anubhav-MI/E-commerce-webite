@@ -2,6 +2,7 @@ import { React, useState, useEffect } from "react";
 import axios from "axios";
 import Usermenu from "./usermenu";
 import { useAuth } from "../context/auth";
+import { baseURL } from "./baseURL";
 import moment from "moment";
 const OrdersPage = () => {
   const [orders, setorders] = useState([]);
@@ -9,7 +10,7 @@ const OrdersPage = () => {
   const getOrders = async () => {
     try {
       const user = auth.user.name;
-      const { data } = await axios.post("http://localhost:3001/order", {
+      const { data } = await axios.post(`${baseURL}/order`, {
         buyer: user,
       });
       console.log(data[0].products);

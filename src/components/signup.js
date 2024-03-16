@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import signimg from "../Images/sign up image.png";
-import { GoogleOAuthProvider } from "@react-oauth/google";
-import { GoogleLogin } from "@react-oauth/google";
+// import { GoogleOAuthProvider } from "@react-oauth/google";
+// import { GoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
+// import { jwtDecode } from "jwt-decode";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
+import { baseURL } from "./baseURL";
 const Signup = () => {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
@@ -15,7 +16,7 @@ const Signup = () => {
   const navigate = useNavigate();
   const handleclick = () => {
     const response = axios
-      .post("http://localhost:3001/register", {
+      .post(`${baseURL}/register`, {
         name,
         email,
         password,
@@ -100,6 +101,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
+      <Toaster></Toaster>
     </div>
   );
 };

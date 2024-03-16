@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AdminMenu from "./adminMenu";
 import { Select } from "antd";
+import { baseURL } from "../baseURL";
 const { Option } = Select;
 
 const Manageproducts = () => {
@@ -14,7 +15,7 @@ const Manageproducts = () => {
   const [products, setproducts] = useState("");
   useEffect(() => {
     const fetchdata = async () => {
-      const data = await axios.get("http://localhost:3001/products/get");
+      const data = await axios.get(`${baseURL}/products/get`);
       setproducts(data);
       //   console.log(products);
       getcategory();
@@ -25,7 +26,7 @@ const Manageproducts = () => {
 
   const getcategory = async () => {
     try {
-      const data = await axios.get("http://localhost:3001/getcategory");
+      const data = await axios.get(`${baseURL}/getcategory`);
       setavcategory(data.data);
       console.log(avcategory);
     } catch (error) {
@@ -35,7 +36,7 @@ const Manageproducts = () => {
 
   const handlesubmit = () => {
     const response = axios
-      .post("http://localhost:3001/products/add", {
+      .post("${baseURL}/products/add", {
         title,
         imgURL,
         price,
@@ -56,12 +57,9 @@ const Manageproducts = () => {
   const handledelete = async (id) => {
     if (window.confirm("Are you sure u want to delete this user?")) {
       try {
-        const data = await axios.post(
-          "http://localhost:3001/products/deleteproduct",
-          {
-            _id: id,
-          }
-        );
+        const data = await axios.post(`${baseURL}/products/deleteproduct`, {
+          _id: id,
+        });
         alert("Deleted Successfully");
         window.location.reload();
       } catch (error) {

@@ -4,6 +4,7 @@ import signimg from "../Images/sign up image.png";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
+import { baseURL } from "./baseURL";
 import { jwtDecode } from "jwt-decode";
 import { useAuth } from "../context/auth";
 import toast from "react-hot-toast";
@@ -19,7 +20,7 @@ const Login = () => {
       return;
     }
     const response = axios
-      .post("http://localhost:3001/login", {
+      .post(`${baseURL}/login`, {
         email,
         password,
       })

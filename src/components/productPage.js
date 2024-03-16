@@ -5,7 +5,7 @@ import { Checkbox } from "antd";
 import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
-
+import { baseURL } from "./baseURL";
 const ProductPage = () => {
   const [products, setproducts] = useState("");
   const [avcategory, setavcategory] = useState([]);
@@ -13,7 +13,7 @@ const ProductPage = () => {
 
   const getcategory = async () => {
     try {
-      const data = await axios.get("http://localhost:3001/getcategory");
+      const data = await axios.get(`${baseURL}/getcategory`);
       setavcategory(data.data);
       console.log(avcategory);
     } catch (error) {
@@ -23,7 +23,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     const fetchdata = async () => {
-      const data = await axios.get("http://localhost:3001/products/get");
+      const data = await axios.get(`${baseURL}/products/get`);
       setproducts(data);
       // console.log(products);
       // console.log(products.data[0].title);

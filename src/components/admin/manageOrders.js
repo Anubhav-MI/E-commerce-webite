@@ -4,6 +4,7 @@ import AdminMenu from "./adminMenu";
 import axios from "axios";
 import moment from "moment";
 import { Select } from "antd";
+import { baseURL } from "../baseURL";
 const { Option } = Select;
 const ManageOrders = () => {
   const [status, setstatus] = useState([
@@ -16,7 +17,7 @@ const ManageOrders = () => {
   const [auth] = useAuth();
   const getOrders = async () => {
     try {
-      const { data } = await axios.get("http://localhost:3001/getallorder");
+      const { data } = await axios.get(`${baseURL}/getallorder`);
       console.log(data);
       setorders(data);
     } catch (err) {
@@ -26,12 +27,9 @@ const ManageOrders = () => {
 
   const handlechange = async (orderId, value) => {
     try {
-      const { data } = await axios.put(
-        `http://localhost:3001/order-status/${orderId}`,
-        {
-          status: value,
-        }
-      );
+      const { data } = await axios.put(`${baseURL}/order-status/${orderId}`, {
+        status: value,
+      });
       getOrders();
     } catch (err) {
       console.log(err);

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import AdminMenu from "./adminMenu";
+import { baseURL } from "../baseURL";
 const ManageCategory = () => {
   const [category, setcategory] = useState("");
   const handlesubmit = () => {
     const response = axios
-      .post("http://localhost:3001/createcategory", {
+      .post(`${baseURL}/createcategory`, {
         name: category,
       })
       .then(() => {
