@@ -5,13 +5,14 @@ import profile from "./../Images/user.png";
 import { useAuth } from "../context/auth";
 import { useCart } from "../context/cart";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Badge } from "antd";
 const Navbar = () => {
   const [auth, setAuth] = useAuth();
   const [cart] = useCart();
   const navigate = useNavigate();
   const [tap, settap] = useState("false");
+  const location = useLocation();
   const handletap = () => {
     settap(!tap);
   };
@@ -25,7 +26,7 @@ const Navbar = () => {
   };
   useEffect(() => {
     settap(false);
-  }, []);
+  }, [location]);
   return (
     <div className=" mb-24">
       {window.innerWidth > 768 ? (
@@ -132,7 +133,7 @@ const Navbar = () => {
                 <li className="pb-4">
                   {!auth.user ? (
                     <>
-                      <Link className=" text-2xl" href="/signup">
+                      <Link className=" text-2xl" to="/signup">
                         Signup
                       </Link>
                     </>

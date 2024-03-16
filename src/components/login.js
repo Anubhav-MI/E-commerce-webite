@@ -9,6 +9,7 @@ import { jwtDecode } from "jwt-decode";
 import { useAuth } from "../context/auth";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
+import { Link } from "react-router-dom";
 const Login = () => {
   const navigate = useNavigate();
   const [email, setemail] = useState("");
@@ -16,7 +17,7 @@ const Login = () => {
   const [auth, setAuth] = useAuth();
   const handlesubmit = () => {
     if (!email || !password) {
-      alert("Email and password are compulsory fields");
+      toast.error("Email and password are compulsory fields");
       return;
     }
     const response = axios
@@ -105,7 +106,7 @@ const Login = () => {
           </div> */}
           <div className="flex gap-8 text-center">
             <p>Don't have an account?</p>
-            <a href="/signup">Sign up</a>
+            <Link to="/signup">Sign up</Link>
           </div>
         </div>
       </div>

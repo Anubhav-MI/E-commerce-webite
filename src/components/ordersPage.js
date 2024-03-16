@@ -27,10 +27,10 @@ const OrdersPage = () => {
   }, [auth?.token]);
   return (
     <div className=" mx-2 md:mx-12 my-12 ">
-      <div className="md:flex justify-between">
+      {/* <div className="md:flex justify-between">
         <p>Home/My account</p>
         <p> Welcome {auth && auth.user && auth.user.name} !</p>
-      </div>
+      </div> */}
       <div className="md:flex content-between gap-12 py-4 ">
         <Usermenu className="flex-none" />
         <div className="flex-1">

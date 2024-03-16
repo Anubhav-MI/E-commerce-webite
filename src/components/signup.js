@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
 import { baseURL } from "./baseURL";
+import { Link } from "react-router-dom";
 const Signup = () => {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
@@ -97,7 +98,7 @@ const Signup = () => {
           </GoogleOAuthProvider> */}
           <div className="flex gap-8 text-center">
             <p>Already have an account?</p>
-            <a href="/Login">Log in</a>
+            <Link to="/Login">Log in</Link>
           </div>
         </div>
       </div>

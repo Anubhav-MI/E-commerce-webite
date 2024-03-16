@@ -57,7 +57,7 @@ const Cartpage = () => {
       const buyer = auth.user.name;
       setloading(true);
       const { nonce } = await instance.requestPaymentMethod();
-      const { data } = await axios.post("${baseURL}/braintree/payment", {
+      const { data } = await axios.post(`${baseURL}/braintree/payment`, {
         cart,
         nonce,
         buyer,
@@ -74,7 +74,7 @@ const Cartpage = () => {
   };
 
   useEffect(() => {
-    console.log(cart);
+    // console.log(cart);
     getToken();
   }, [auth?.token]);
 
@@ -88,7 +88,7 @@ const Cartpage = () => {
             }`
           : "Your cart is empty"}
       </h4>
-      {!cart.length < 1 && (
+      {!cart.length < 1 && auth.token && (
         <div className="md:mx-28 py-6 md:flex  justify-around items-center gap-24 p-8 border shadow">
           <div className="mb-4 md:mb-14">
             {cart?.map((p) => (
