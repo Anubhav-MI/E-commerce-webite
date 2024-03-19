@@ -18,8 +18,8 @@ const Home = () => {
             <img src={rect} width={20}></img>
             <p className="font-bold text-xl text-rose-600">Our Products</p>
           </div>
-          <div className="mb-5">
-            <p className="text-5xl font-bold">Explore our products</p>
+          <div className="my-5">
+            <p className="text-5xl font-bold">Trending Products</p>
           </div>
           <Product />
         </div>

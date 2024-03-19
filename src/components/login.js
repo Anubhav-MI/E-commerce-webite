@@ -102,7 +102,7 @@ const Login = () => {
             />
           </GoogleOAuthProvider> */}
           {/* <div className="flex gap-8 text-center">
-            <a>Forgot password?</a>
+            <a>Forgot password?</Link>
           </div> */}
           <div className="flex gap-8 text-center">
             <p>Don't have an account?</p>

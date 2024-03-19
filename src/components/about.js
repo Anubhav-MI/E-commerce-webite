@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const About = () => {
   return (
     <div>
@@ -53,7 +53,7 @@ const About = () => {
                     <br />
                     <li> Backend: Node.js, Express.js, MongoDB</li>
                     <br />
-                    <li> Payment Processing: Stripe, PayPal</li> <br />
+                    <li> Payment Processing:PayPal</li> <br />
                     <li>
                       Authentication and Authorization: JSON Web Tokens (JWT),
                       OAuth
@@ -63,24 +63,24 @@ const About = () => {
 
                 <ul>
                   <li>
-                    <a href="#">
+                    <Link to="/">
                       <i class="fa fa-facebook"></i>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="/">
                       <i class="fa fa-twitter"></i>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="/">
                       <i class="fa fa-linkedin"></i>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="/">
                       <i class="fa fa-behance"></i>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

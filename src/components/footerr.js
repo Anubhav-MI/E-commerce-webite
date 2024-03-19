@@ -1,15 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <div>
-      {" "}
-      <footer>
+      <footer className="md:pl-20">
         <div class="container">
           <div class="row">
             <div class="col-lg-3">
               <div class="first-item">
-                <div class="logo">
+                <div class="logo ml-20 pb-8 md:pb-0 md:ml-0">
                   <img
                     src="assets/images/white-logo.png"
                     alt="hexashop ecommerce templatemo"
@@ -17,13 +17,13 @@ const Footer = () => {
                 </div>
                 <ul>
                   <li>
-                    <a href="#">NIT Hamirpur,Himachal Pradesh, India</a>
+                    <Link to="/">NIT Hamirpur,Himachal Pradesh, India</Link>
                   </li>
                   <li>
-                    <a href="#">hexashop@company.com</a>
+                    <Link to="/">hexashop@company.com</Link>
                   </li>
                   <li>
-                    <a href="#">010-020-0340</a>
+                    <Link to="/">010-020-0340</Link>
                   </li>
                 </ul>
               </div>
@@ -32,16 +32,16 @@ const Footer = () => {
               <h4>Shopping &amp; Categories</h4>
               <ul>
                 <li>
-                  <a href="#">Laptops</a>
+                  <Link to="/">Laptops</Link>
                 </li>
                 <li>
-                  <a href="#">Mobiles</a>
+                  <Link to="/">Mobiles</Link>
                 </li>
                 <li>
-                  <a href="#">Headphones</a>
+                  <Link to="/">Headphones</Link>
                 </li>
                 <li>
-                  <a href="#">Accessories</a>
+                  <Link to="/">Accessories</Link>
                 </li>
               </ul>
             </div>
@@ -49,16 +49,16 @@ const Footer = () => {
               <h4>Useful Links</h4>
               <ul>
                 <li>
-                  <a href="#">Homepage</a>
+                  <Link to="/">Homepage</Link>
                 </li>
                 <li>
-                  <a href="#">About Us</a>
+                  <Link to="/">About Us</Link>
                 </li>
                 <li>
-                  <a href="#">Help</a>
+                  <Link to="/">Help</Link>
                 </li>
                 <li>
-                  <a href="#">Products</a>
+                  <Link to="/">Products</Link>
                 </li>
               </ul>
             </div>
@@ -66,47 +66,47 @@ const Footer = () => {
               <h4>Help &amp; Information</h4>
               <ul>
                 <li>
-                  <a href="#">Help</a>
+                  <Link to="/">Help</Link>
                 </li>
                 <li>
-                  <a href="#">FAQ's</a>
+                  <Link to="/">FAQ's</Link>
                 </li>
                 <li>
-                  <a href="#">Shipping</a>
+                  <Link to="/">Shipping</Link>
                 </li>
                 <li>
-                  <a href="#">Tracking ID</a>
+                  <Link to="/">Tracking ID</Link>
                 </li>
               </ul>
             </div>
             <div class="col-lg-12">
               <div class="under-footer">
                 <p>
-                  Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved.
+                  Copyright © 2024 HexaShop Co., Ltd. All Rights Reserved.
                   <br />
                   Design:
                   <p>Bootstrap</p>
                 </p>
                 <ul>
                   <li>
-                    <a href="#">
+                    <Link to="/">
                       <i class="fa fa-facebook"></i>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="/">
                       <i class="fa fa-twitter"></i>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="/">
                       <i class="fa fa-linkedin"></i>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="/">
                       <i class="fa fa-behance"></i>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

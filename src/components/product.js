@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Checkbox } from "antd";
+// import { Checkbox } from "antd";
 import { useCart } from "../context/cart";
 import { baseURL } from "./baseURL";
 import toast from "react-hot-toast";
@@ -80,7 +80,6 @@ const Product = () => {
           </div>
         </div>
       )}
-      ;
     </div>
   );
 };

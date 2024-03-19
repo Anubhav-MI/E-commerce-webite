@@ -30,7 +30,7 @@ const Navbar = () => {
   return (
     <div className=" mb-24">
       {window.innerWidth > 768 ? (
-        <header class="header-area header-sticky">
+        <header class="header-area header-sticky mx-10">
           <div class="container">
             <div class="row">
               <div class="col-12">
@@ -72,9 +72,9 @@ const Navbar = () => {
                     </li>
                     <li class="scroll-to-section">
                       <div className="flex gap-12 justify-between items-center">
-                        <Link>
+                        {/* <Link>
                           <img src={wishlist} width={40} height={40}></img>
-                        </Link>
+                        </Link> */}
                         <Badge count={cart?.length} showZero>
                           <Link to="/cart">
                             <img
@@ -104,14 +104,14 @@ const Navbar = () => {
         <div className="border shadow p-2 position-absolute w-full position-fixed top-0 z-10 bg-white">
           <div className="flex justify-between">
             <div>
-              <img src="assets/images/logo.png" />
+              <img width={150} src="assets/images/logo.png" />
             </div>
             <div
               onClick={() => {
                 handletap();
               }}
             >
-              <img src="assets/images/menu.png" width={40} height={40} />
+              <img src="assets/images/menu.png" width={30} height={30} />
             </div>
           </div>
           {tap ? (
@@ -148,11 +148,11 @@ const Navbar = () => {
                 <li>
                   <div className="items-center text-2xl flex flex-col pb-4">
                     <Badge count={cart?.length} showZero>
-                      <Link className="text-2xl pb-4" to="/cart">
+                      <Link className="text-2xl pb-8" to="/cart">
                         Cart
                       </Link>
                     </Badge>
-                    <Link className="pt-2" to="/admin">
+                    <Link className="pt-3" to="/admin">
                       Account
                     </Link>
                   </div>

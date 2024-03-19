@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 const Cartpage = () => {
   const [auth] = useAuth();
   const [cart, setcart] = useCart();
+  const [quantities, setQuantities] = useState({});
   const [clientToken, setclientToken] = useState("");
   const [instance, setinstance] = useState("");
   const [loading, setloading] = useState(false);
@@ -16,18 +17,19 @@ const Cartpage = () => {
   useEffect(() => {
     let existingcart = localStorage.getItem("cart");
     if (existingcart) setcart(JSON.parse(existingcart));
+    console.log(existingcart);
+    totalPrice();
   }, []);
 
   const totalPrice = () => {
-    try {
-      let total = 0;
-      cart?.map((item) => {
-        total = total + item.price;
-      });
-      return total;
-    } catch (error) {
-      console.log(error);
-    }
+    let total = 0;
+    cart.forEach((item) => {
+      total += item.price * quantities[item._id]; // Multiply price by quantity
+    });
+    return total;
+  };
+  const handleQuantityChange = (productId, newQuantity) => {
+    setQuantities({ ...quantities, [productId]: newQuantity });
   };
 
   const removeCartItem = (pid) => {
@@ -55,12 +57,14 @@ const Cartpage = () => {
   const handlePayment = async () => {
     try {
       const buyer = auth.user.name;
+      const total = totalPrice();
       setloading(true);
       const { nonce } = await instance.requestPaymentMethod();
       const { data } = await axios.post(`${baseURL}/braintree/payment`, {
         cart,
         nonce,
         buyer,
+        total,
       });
       setloading(false);
       window.localStorage.removeItem("cart");
@@ -75,12 +79,17 @@ const Cartpage = () => {
 
   useEffect(() => {
     // console.log(cart);
+    const initialQuantities = cart.reduce((acc, item) => {
+      acc[item._id] = 1; // Default quantity is 1 for each item
+      return acc;
+    }, {});
+    setQuantities(initialQuantities);
     getToken();
   }, [auth?.token]);
 
   return (
     <div className="md:m-8">
-      <p>Home/Cart</p>
+      {/* <p>Home/Cart</p> */}
       <h4 className="text-center text-2xl md:text-4xl py-8">
         {cart.length >= 1
           ? `You have ${cart.length} items in your cart ${
@@ -101,12 +110,41 @@ const Cartpage = () => {
                   <p className="text-lg md:text-2xl">Rs{p.price}</p>
                   <p className="text-lg md:text-2xl">{p.rating}</p>
                   <p className="text-lg md:text-2xl">{p.category}</p>
-                  <button
-                    onClick={() => removeCartItem(p._id)}
-                    className="text-lg btn btn-primary"
-                  >
-                    Delete
-                  </button>
+                  <div className="flex gap-10 pt-2">
+                    <div className="border shadow px-2 pt-1 rounded">
+                      <button
+                        className="mr-2"
+                        onClick={() => {
+                          handleQuantityChange(
+                            p._id,
+                            quantities[p._id] - 1 > 0
+                              ? quantities[p._id] - 1
+                              : 1
+                          );
+                        }}
+                      >
+                        -
+                      </button>
+                      <span>{quantities[p._id] || 1}</span>
+                      <button
+                        className="ml-2"
+                        onClick={() => {
+                          handleQuantityChange(
+                            p._id,
+                            (quantities[p._id] || 1) + 1
+                          );
+                        }}
+                      >
+                        +
+                      </button>
+                    </div>
+                    <button
+                      onClick={() => removeCartItem(p._id)}
+                      className="text-lg btn btn-primary"
+                    >
+                      Remove
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
